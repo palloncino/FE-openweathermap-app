@@ -4,11 +4,12 @@ import {IApplicationProps} from '../../../types';
 import HeroHeader from '../../components/HeroHeader';
 import SquaredPattern from '../../../media/svgs/squared-pattern-theme.svg';
 import {StyledParagraph, StyledSectionDiv, StylePageContentContainer} from '../../Style';
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
+import ApiService from '../../../api/apiServices';
+import { useWeather } from '../../../hooks/useWeather';
 
 const Home = ({theme}: IApplicationProps) => {
-	useEffect(() => console.log(`${process.env.REACT_APP_API_BASE_URL}?q=London&limit=5&${process.env.REACT_APP_OPEN_WEATHER_API_KEY}`), []);
-
+	const {londonData} = useWeather();
 	return (
 		<StylePageContentContainer>
 			<StyledSectionDiv>
@@ -17,7 +18,7 @@ const Home = ({theme}: IApplicationProps) => {
 			<StyledSectionDiv>
 				<StyledParagraph>
 					<Text variant={'large'} block>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta nobis ab iure? Aut assumenda in nesciunt aliquam, facilis ipsum nisi architecto repellendus magni sequi fugit quo, cumque quia dolorem nobis!
+						{JSON.stringify(londonData)}
 					</Text>
 				</StyledParagraph>
 			</StyledSectionDiv>

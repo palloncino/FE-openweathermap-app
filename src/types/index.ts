@@ -2,6 +2,10 @@
 import {PartialTheme} from '@fluentui/react';
 import {CSSProperties} from 'styled-components';
 
+type weatherQueryObjectType = {
+  limit: number;
+}
+
 type FolderNameType = string; // Gets used when create a new page and added to app.config.json (see: Home, Articles)
 interface ViewType {
   folderName: FolderNameType;
@@ -80,5 +84,6 @@ export type {
 	IAnchorProps,
 	IArticleMetadata,
 	IArticleMetadataModuleImport,
+	weatherQueryObjectType,
 };
 
