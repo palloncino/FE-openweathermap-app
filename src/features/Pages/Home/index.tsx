@@ -7,7 +7,7 @@ import {StyledParagraph, StyledSectionDiv, StylePageContentContainer} from '../.
 import {useWeather} from '../../../hooks/useWeather';
 
 const Home = ({theme}: IApplicationProps) => {
-	const {londonWeather} = useWeather();
+	const {currentLondonWeather} = useWeather();
 	return (
 		<StylePageContentContainer>
 			<StyledSectionDiv>
@@ -16,7 +16,8 @@ const Home = ({theme}: IApplicationProps) => {
 			<StyledSectionDiv>
 				<StyledParagraph>
 					<Text variant={'large'} block>
-						{JSON.stringify(londonWeather)}
+						{console.log({currentLondonWeather})}
+						{JSON.stringify(currentLondonWeather)}
 					</Text>
 				</StyledParagraph>
 			</StyledSectionDiv>
