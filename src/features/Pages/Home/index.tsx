@@ -7,7 +7,7 @@ import {StyledParagraph, StyledSectionDiv, StylePageContentContainer} from '../.
 const Home = ({theme}: IApplicationProps) => (
 	<StylePageContentContainer>
 		<StyledSectionDiv>
-			<HeroHeader color={theme?.palette?.white} bgImage={SquaredPattern} headline={'Introduction to the man.'} />
+			<HeroHeader color={theme?.palette?.white} bgImage={SquaredPattern} headline={'What\'s the weather like?'} />
 		</StyledSectionDiv>
 		<StyledSectionDiv>
 			<StyledParagraph>
