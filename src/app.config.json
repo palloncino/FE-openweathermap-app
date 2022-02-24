@@ -1,0 +1,16 @@
+{
+  "views": [
+    {
+      "folderName": "Home",
+      "name": "home",
+      "label": "WeatherApp",
+      "url": "/"
+    },
+    {
+      "folderName": "Description",
+      "name": "description",
+      "label": "Description",
+      "url": "/description"
+    }
+  ]
+}
