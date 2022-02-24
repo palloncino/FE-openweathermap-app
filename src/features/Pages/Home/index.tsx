@@ -1,12 +1,9 @@
-/* eslint-disable */
 import {Text} from '@fluentui/react';
 import {IApplicationProps} from '../../../types';
 import HeroHeader from '../../components/HeroHeader';
 import SquaredPattern from '../../../media/svgs/squared-pattern-theme.svg';
 import {StyledParagraph, StyledSectionDiv, StylePageContentContainer} from '../../Style';
-import {useEffect, useState} from 'react';
-import ApiService from '../../../api/apiServices';
-import { useWeather } from '../../../hooks/useWeather';
+import {useWeather} from '../../../hooks/useWeather';
 
 const Home = ({theme}: IApplicationProps) => {
 	const {londonData} = useWeather();
