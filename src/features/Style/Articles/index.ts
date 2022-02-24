@@ -18,8 +18,27 @@ const StyledParagraph = styled.div`
   line-height: 2rem;
 `;
 
-const StyledSectionDiv = styled.div`
+const StyledSectionWhite = styled.div`
+	background: #fff;
+	padding: 1.2rem;
 	margin-bottom: 2rem;
+	border-radius: .2rem;
+	box-shadow: 0px 0.6px 1.8px rgba(0, 0, 0, 0.1), 0px 3.2px 7.2px rgba(0, 0, 0, 0.13);
+`;
+
+const SectionMarginBottom = styled.div`
+	margin-bottom: 2rem;
+`;
+
+const WeatherCardContainer = styled.div`
+	background: #fff;
+	border-radius: .2rem;
+	padding: 1rem;
+	box-shadow: 0px 0.6px 1.8px rgba(0, 0, 0, 0.1), 0px 3.2px 7.2px rgba(0, 0, 0, 0.13);
+`;
+
+const WeatherCardProp = styled.div`
+	margin-bottom: .5rem;
 `;
 
 const SpecialWordStyle = styled.span<{ color?: string }>`
@@ -27,11 +46,11 @@ const SpecialWordStyle = styled.span<{ color?: string }>`
 	font-family: 'menlo';
 `;
 
-const StyledArticlesGrid = styled.div<{gridTemplateColumns?: string[]}>`
+const StyledArticlesGrid = styled.div<{gridTemplateColumns?: string, columnGap?: string, rowGap?: string}>`
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	column-gap: 1rem;
-  row-gap: 1rem;
+	grid-template-columns: ${props => props.gridTemplateColumns || 'repeat(3, 1fr)'};
+	column-gap: ${props => props.columnGap || '1rem'};
+	row-gap: ${props => props.rowGap || '1rem'};
 `;
 
 const StyledArticleCardContainer = styled.div<{key?: string, color?: string, bgColor?: string}>`
@@ -52,10 +71,13 @@ export {
 	StyledArticlesStack,
 	StyledParagraphHeader,
 	StyledParagraph,
-	StyledSectionDiv,
 	SpecialWordStyle,
 	StyledArticlesGrid,
 	StyledArticleCardContainer,
 	StyledArticleCardTitle,
 	StyledArticleCardSummary,
+	WeatherCardContainer,
+	WeatherCardProp,
+	StyledSectionWhite,
+	SectionMarginBottom,
 };

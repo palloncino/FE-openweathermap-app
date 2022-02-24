@@ -2,6 +2,10 @@
 import {PartialTheme} from '@fluentui/react';
 import {CSSProperties} from 'styled-components';
 
+// +------------------------------------------------------------
+// | Weather
+// +------------------------------------------------------------
+
 type coordinatesQueryObjectType = {
   limit: number;
 }
@@ -9,6 +13,23 @@ type weatherQueryObjectType = {
 	lat: number;
 	lon: number;
 }
+
+type CityWeatherObjectType = {
+	cityOf: string;
+  summary: string;
+  temp: string;
+  humidity: string;
+  lastUpdate: string;
+}
+
+interface IWeatherCardProps {
+  data: CityWeatherObjectType | undefined;
+  loading: boolean;
+}
+
+// +------------------------------------------------------------
+// | Others
+// +------------------------------------------------------------
 
 type FolderNameType = string; // Gets used when create a new page and added to app.config.json (see: Home, Articles)
 interface ViewType {
@@ -90,5 +111,7 @@ export type {
 	IArticleMetadataModuleImport,
 	coordinatesQueryObjectType,
 	weatherQueryObjectType,
+	CityWeatherObjectType,
+	IWeatherCardProps,
 };
 

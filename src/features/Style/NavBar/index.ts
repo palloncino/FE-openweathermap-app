@@ -2,7 +2,7 @@ import {IDropdownStyles, IStackTokens} from '@fluentui/react';
 import styled from 'styled-components';
 
 const NavBarWrapper = styled.div`
-		height: 100px;
+		height: 80px;
 		width: 100%;
 		display: flex;
 		justify-content: center;
@@ -25,7 +25,6 @@ const NavBarContentContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
 	padding: 0 2rem;
-	margin: 0rem 0rem 1rem 0rem;
 `;
 
 const dropdownStyles: Partial<IDropdownStyles> = {

@@ -11,6 +11,7 @@ const StyledHeroHeader = styled.div<{ bgColor?: string; bgImage?: string; }>`
   background-image: ${props => props.bgImage ? `url(${props.bgImage})` : ''};
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: .2rem;
 `;
 
 export {StyledHeroHeader};
