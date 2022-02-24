@@ -1,18 +1,19 @@
+/* eslint-disable  */
 import {useEffect, useState} from 'react';
 import ApiService from '../api/apiServices';
 
 export const useWeather = () => {
-	const [londonData, setLondonData] = useState();
+  const [londonWeather, setLondonWeather] = useState();
+  const getLondonData = async () => {
+  	const {data} = await ApiService.coordinates.London({limit: 1}); // Limit 2 would result in 2 London (GB, CA) which is useless for us
+  	const {lat, lon} = data[0];
+    const response = await ApiService.weather.London({lat, lon});
+    setLondonWeather(response.data);
+  };
 
-	const getLondonData = async () => {
-		// eslint-disable-next-line new-cap
-		const {data} = await ApiService.weather.London({limit: 5});
-		setLondonData(data);
-	};
+  useEffect(() => {
+  	getLondonData();
+  }, []);
 
-	useEffect(() => {
-		getLondonData();
-	}, []);
-
-	return {londonData};
+  return {londonWeather};
 };

@@ -2,8 +2,12 @@
 import {PartialTheme} from '@fluentui/react';
 import {CSSProperties} from 'styled-components';
 
-type weatherQueryObjectType = {
+type coordinatesQueryObjectType = {
   limit: number;
+}
+type weatherQueryObjectType = {
+	lat: number;
+	lon: number;
 }
 
 type FolderNameType = string; // Gets used when create a new page and added to app.config.json (see: Home, Articles)
@@ -84,6 +88,7 @@ export type {
 	IAnchorProps,
 	IArticleMetadata,
 	IArticleMetadataModuleImport,
+	coordinatesQueryObjectType,
 	weatherQueryObjectType,
 };
 

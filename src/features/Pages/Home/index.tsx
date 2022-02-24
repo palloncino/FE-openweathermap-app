@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-pattern */
 import {Text} from '@fluentui/react';
 import {IApplicationProps} from '../../../types';
 import HeroHeader from '../../components/HeroHeader';
@@ -6,7 +7,7 @@ import {StyledParagraph, StyledSectionDiv, StylePageContentContainer} from '../.
 import {useWeather} from '../../../hooks/useWeather';
 
 const Home = ({theme}: IApplicationProps) => {
-	const {londonData} = useWeather();
+	const {londonWeather} = useWeather();
 	return (
 		<StylePageContentContainer>
 			<StyledSectionDiv>
@@ -15,7 +16,7 @@ const Home = ({theme}: IApplicationProps) => {
 			<StyledSectionDiv>
 				<StyledParagraph>
 					<Text variant={'large'} block>
-						{JSON.stringify(londonData)}
+						{JSON.stringify(londonWeather)}
 					</Text>
 				</StyledParagraph>
 			</StyledSectionDiv>
