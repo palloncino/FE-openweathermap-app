@@ -16,7 +16,7 @@ const Description = ({theme}: IApplicationProps) => (
 			<StyledSectionWhite>
 				<StyledParagraph>
 					<Text variant={'large'} block>
-					Take a look at the <Anchor href={process.env.REACT_APP_GITHUB_REPO_URL} text="source code" />.
+						Take a look at the <Anchor href={'https://github.com/palloncino/alpian-test-weather-app'} text="source code" />.
 					</Text>
 				</StyledParagraph>
 
