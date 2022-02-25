@@ -7,7 +7,7 @@ import {CSSProperties} from 'styled-components';
 // +------------------------------------------------------------
 
 type coordinatesQueryObjectType = {
-  limit: number;
+	limit: number;
 }
 type weatherQueryObjectType = {
 	lat: number;
@@ -15,16 +15,80 @@ type weatherQueryObjectType = {
 }
 
 type CityWeatherObjectType = {
-	cityOf: string;
-  summary: string;
-  temp: string;
-  humidity: string;
-  lastUpdate: string;
+	cityOf?: string;
+	summary: string;
+	temp: string;
+	humidity: string;
+	lastUpdate: string;
 }
 
 interface IWeatherCardProps {
-  data: CityWeatherObjectType | undefined;
-  loading: boolean;
+	data: CityWeatherObjectType | undefined;
+	loading: boolean;
+}
+
+interface IWeatherForecastCardsProps {
+	data: CityWeatherObjectType | undefined;
+	loading: boolean;
+}
+
+interface ICityForecastResponse {
+	cod: number;
+	message: number;
+	cnt: number;
+	list: [
+		{
+			dt: number;
+			main: {
+				temp: number;
+				feels_like: number;
+				temp_min: number;
+				temp_max: number;
+				pressure: number;
+				sea_level: number;
+				grnd_level: number;
+				humidity: number;
+				temp_kf: number;
+			},
+			weather: [
+				{
+					id: number;
+					main: string;
+					description: string;
+					icon: string;
+				}
+			],
+			clouds: {
+				all: number;
+			},
+			wind: {
+				speed: number,
+				deg: number,
+				gust: number;
+			},
+			visibility: number;
+			pop: number;
+			rain: {
+				['3h']: number;
+			},
+			sys: {
+				pod: string;
+			},
+			dt_txt: string
+		},
+	]
+	city: {
+		id: number;
+		name: string;
+		coord: {
+			lat: number;
+			lon: number;
+		}
+		country: string;
+		timezone: number;
+		sunrise: number;
+		sunset: number;
+	}
 }
 
 // +------------------------------------------------------------
@@ -33,13 +97,13 @@ interface IWeatherCardProps {
 
 type FolderNameType = string; // Gets used when create a new page and added to app.config.json (see: Home, Articles)
 interface ViewType {
-  folderName: FolderNameType;
-  name: string;
-  label: string;
-  url: string;
+	folderName: FolderNameType;
+	name: string;
+	label: string;
+	url: string;
 }
 interface IAppConfig {
-  views: ViewType[];
+	views: ViewType[];
 }
 interface IHeroHeaderProps extends IApplicationProps {
 	color?: string;
@@ -48,11 +112,11 @@ interface IHeroHeaderProps extends IApplicationProps {
 	headline?: string;
 }
 interface IApplicationProps {
-  theme?: PartialTheme | undefined;
-  appConfig?: IAppConfig;
+	theme?: PartialTheme | undefined;
+	appConfig?: IAppConfig;
 }
 
-interface IFramedChildComponentProps extends IApplicationProps {}
+interface IFramedChildComponentProps extends IApplicationProps { }
 
 interface ILinkButton extends IFramedChildComponentProps {
 	name?: string;
@@ -62,8 +126,8 @@ interface ILinkButton extends IFramedChildComponentProps {
 }
 
 interface IImageProps {
-  src: string;
-  alt?: string;
+	src: string;
+	alt?: string;
 	style?: CSSProperties;
 }
 
@@ -113,5 +177,7 @@ export type {
 	weatherQueryObjectType,
 	CityWeatherObjectType,
 	IWeatherCardProps,
+	ICityForecastResponse,
+	IWeatherForecastCardsProps,
 };
 

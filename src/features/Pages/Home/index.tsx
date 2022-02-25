@@ -3,9 +3,10 @@ import HeroHeader from '../../components/HeroHeader';
 import {SectionMarginBottom, StylePageContentContainer} from '../../Style';
 import {useWeather} from '../../../hooks/useWeather';
 import WeatherCard from '../../components/WeatherCard';
+import WeatherForecastCards from '../../components/WeatherForecastCards';
 
 const Home = ({theme}: IApplicationProps) => {
-	const {currentLondonWeather, currentWeatherLoading} = useWeather();
+	const {currentLondonWeather, currentWeatherLoading, forecastLondonWeather, forecastWeatherLoading} = useWeather();
 	return (
 		<>
 			<StylePageContentContainer>
@@ -16,6 +17,8 @@ const Home = ({theme}: IApplicationProps) => {
 						headline={'What\'s the weather like?'} />
 				</SectionMarginBottom>
 				<WeatherCard data={currentLondonWeather} loading={currentWeatherLoading} />
+
+				<WeatherForecastCards data={forecastLondonWeather} loading={forecastWeatherLoading} />
 			</StylePageContentContainer>
 		</>
 	);

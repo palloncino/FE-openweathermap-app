@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable new-cap */
 import {useEffect, useState} from 'react';
 import ApiService from '../api/apiServices';
 import {CityWeatherObjectType} from '../types';
@@ -6,27 +6,46 @@ import {kelvinToCelsius} from '../utils';
 
 export const useWeather = () => {
 	const [currentLondonWeather, setCurrentLondonWeather] = useState<CityWeatherObjectType | undefined>();
-  const [currentWeatherLoading, setCurrentWeatherLoading] = useState(false);
+	const [currentWeatherLoading, setCurrentWeatherLoading] = useState(false);
+	const [forecastLondonWeather, setForecastLondonWeather] = useState<Partial<CityWeatherObjectType[]> | undefined>();
+	const [forecastWeatherLoading, setForecastWeatherLoading] = useState(false);
 
-	const getLondonCurrentWeather = async () => {
-    setCurrentWeatherLoading(true);
-  	const response = await ApiService.coordinates.London({limit: 1}); // Limit 2 would result in 2 London (GB, CA) which is useless for us
-  	const {lat, lon} = response.data[0];
-		const {data} = await ApiService.weather.London({lat, lon});
+	const getLondonWeather = async () => {
+		// Fetching London Current Weather
+		setCurrentWeatherLoading(true);
+		const resGeo = await ApiService.coordinates.London({limit: 1}); // Limit 2 would result in 2 London (GB, CA) which is useless for us
+		const {lat, lon} = resGeo.data[0];
+		const resLon = await ApiService.weather.London({lat, lon});
+
 		const payload: CityWeatherObjectType = {
-      cityOf: response.data[0].name,
-			summary: data.weather[0].description,
-			temp: `${kelvinToCelsius(data.main.temp)} ℃`,
-			humidity: `${data.main.humidity} %`,
-			lastUpdate: new Date().toLocaleString()
+			cityOf: resGeo.data[0].name,
+			summary: resLon.data.weather[0].description,
+			temp: `${kelvinToCelsius(resLon.data.main.temp)} ℃`,
+			humidity: `${resLon.data.main.humidity} %`,
+			lastUpdate: new Date().toLocaleString(),
 		};
+
 		setCurrentLondonWeather(payload);
-    setCurrentWeatherLoading(false);
+		setCurrentWeatherLoading(false);
+
+		// Fetching London Weather Forecast
+		setForecastWeatherLoading(true);
+		const resForecast = await ApiService.weather.LondonForecast({lat, lon});
+
+		const arrPayloads: Partial<CityWeatherObjectType[]> = resForecast.data.list.map(({weather, main}: any) => ({
+			summary: weather[0].description,
+			temp: `${kelvinToCelsius(main.temp)} ℃`,
+			humidity: `${main.humidity} %`,
+			lastUpdate: new Date().toLocaleString(),
+		}));
+
+		setForecastLondonWeather(arrPayloads);
+		setForecastWeatherLoading(false);
 	};
 
 	useEffect(() => {
-  	getLondonCurrentWeather();
+		getLondonWeather();
 	}, []);
 
-	return {currentLondonWeather, currentWeatherLoading};
+	return {currentLondonWeather, currentWeatherLoading, forecastLondonWeather, forecastWeatherLoading};
 };
