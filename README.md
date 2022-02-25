@@ -1,4 +1,5 @@
-
+# Antonio Guiotto
+# Frontend Software Engineer Technical Test
 # ⚡️ Get Started
 
 1. Create an account with [openweathermap.org](https://openweathermap.org/)
@@ -56,6 +57,3 @@ you to implement features that you think are important for the final user for be
 <br /><br />
 
 `Palloncino (Antonio Guiotto) Feb 2022`
-
-
-
