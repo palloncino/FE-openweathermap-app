@@ -37,7 +37,7 @@ export const useWeather = () => {
 			summary: weather[0].description,
 			temp: `${kelvinToCelsius(main.temp)} ℃`,
 			humidity: `${main.humidity} %`,
-			lastUpdate: new Date().toLocaleString(),
+			lastUpdate: undefined,
 		}));
 
 		setForecastLondonWeather(arrPayloads);
