@@ -14,20 +14,6 @@ const Description = ({theme}: IApplicationProps) => (
 					headline={'Application Description'} />
 			</SectionMarginBottom>
 
-			<SectionMarginBottom>
-				<Text variant={'xxLarge'} nowrap block>
-						To do
-				</Text>
-				<ul>
-					<li>
-							UML Graph Route
-					</li>
-					<li>
-							Tests
-					</li>
-				</ul>
-			</SectionMarginBottom>
-
 			<StyledSectionWhite>
 				<StyledParagraph>
 					<Text variant={'large'} block>

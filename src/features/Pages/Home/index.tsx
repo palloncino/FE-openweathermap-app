@@ -1,6 +1,6 @@
 import {IApplicationProps} from '../../../types';
 import HeroHeader from '../../components/HeroHeader';
-import {SectionMarginBottom, StylePageContentContainer} from '../../Style';
+import {SectionMarginBottom, StyledArticlesGrid, StylePageContentContainer} from '../../Style';
 import {useWeather} from '../../../hooks/useWeather';
 import WeatherCard from '../../components/WeatherCard';
 import WeatherForecastCards from '../../components/WeatherForecastCards';
@@ -19,24 +19,20 @@ const Home = ({theme}: IApplicationProps) => {
 				</SectionMarginBottom>
 
 				<SectionMarginBottom>
-					<Text variant={'xxLarge'} nowrap block>
+					<Text variant={'xLarge'} nowrap block>
 						Current Weather
 					</Text>
 				</SectionMarginBottom>
 
 				<SectionMarginBottom>
-					<WeatherCard data={currentLondonWeather} loading={currentWeatherLoading} />
-				</SectionMarginBottom>
-
-				<SectionMarginBottom>
-					<Text variant={'xxLarge'} nowrap block>
-						Forecast next 5 days.
-					</Text>
+					<StyledArticlesGrid gridTemplateColumns={'repeat(2, 1fr)'}>
+						<WeatherCard data={currentLondonWeather} loading={currentWeatherLoading} />
+					</StyledArticlesGrid>
 				</SectionMarginBottom>
 
 				<SectionMarginBottom>
 					<Text variant={'xLarge'} nowrap block>
-						Every 3 hours
+						Weather forecast for the next 5 days
 					</Text>
 				</SectionMarginBottom>
 

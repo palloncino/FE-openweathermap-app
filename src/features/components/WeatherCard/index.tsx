@@ -36,14 +36,6 @@ const WeatherCard = ({data, loading}: IWeatherCardProps) => {
 					</WeatherCardProp>
 				)}
 
-				{data?.temp && (
-					<WeatherCardProp>
-						<Text variant={'large'} block>
-              Temperature: <span style={fatFontStyle}>{data?.temp}</span>
-						</Text>
-					</WeatherCardProp>
-				)}
-
 				{data?.humidity && (
 					<WeatherCardProp>
 						<Text variant={'large'} block>
@@ -52,10 +44,34 @@ const WeatherCard = ({data, loading}: IWeatherCardProps) => {
 					</WeatherCardProp>
 				)}
 
+				{data?.temp && (
+					<WeatherCardProp>
+						<Text variant={'large'} block>
+              Temperature: <span style={fatFontStyle}>{data?.temp}</span>
+						</Text>
+					</WeatherCardProp>
+				)}
+
+				{data?.max && (
+					<WeatherCardProp>
+						<Text variant={'large'} block>
+              Maximum: <span style={fatFontStyle}>{data?.max}</span>
+						</Text>
+					</WeatherCardProp>
+				)}
+
+				{data?.min && (
+					<WeatherCardProp>
+						<Text variant={'large'} block>
+              Minimum: <span style={fatFontStyle}>{data?.min}</span>
+						</Text>
+					</WeatherCardProp>
+				)}
+
 				{data?.lastUpdate && (
 					<WeatherCardProp>
 						<Text variant={'large'} block>
-              Last updated: <span style={fatFontStyle}>{data?.lastUpdate}</span>
+							Last update: <span style={fatFontStyle}>{data?.lastUpdate} ⏱</span>
 						</Text>
 					</WeatherCardProp>
 				)}

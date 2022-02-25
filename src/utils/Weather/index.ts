@@ -10,3 +10,10 @@ export const translateUnixDate = (unix: number | undefined) => {
 	return moment.unix(unix).format('LLL');
 };
 
+export const formatGetTime = (time: number | undefined) => {
+	if (!time) {
+		return;
+	}
+
+	return moment(time).format('LT');
+};

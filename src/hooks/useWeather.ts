@@ -2,7 +2,7 @@
 import {useEffect, useState} from 'react';
 import ApiService from '../api/apiServices';
 import {CityWeatherObjectType} from '../types';
-import {kelvinToCelsius, translateUnixDate} from '../utils';
+import {formatGetTime, kelvinToCelsius, translateUnixDate} from '../utils';
 
 export const useWeather = () => {
 	const [currentLondonWeather, setCurrentLondonWeather] = useState<CityWeatherObjectType | undefined>();
@@ -22,7 +22,9 @@ export const useWeather = () => {
 			summary: resLon.data.weather[0].description,
 			temp: `${kelvinToCelsius(resLon.data.main.temp)} ℃`,
 			humidity: `${resLon.data.main.humidity} %`,
-			lastUpdate: new Date().toLocaleString(),
+			lastUpdate: formatGetTime(new Date().getTime()),
+			max: `${kelvinToCelsius(resLon.data.main.temp_max)} ℃`,
+			min: `${kelvinToCelsius(resLon.data.main.temp_min)} ℃`,
 		};
 
 		setCurrentLondonWeather(payload);
@@ -38,6 +40,8 @@ export const useWeather = () => {
 			temp: `${kelvinToCelsius(main.temp)} ℃`,
 			humidity: `${main.humidity} %`,
 			lastUpdate: undefined,
+			max: `${kelvinToCelsius(main.temp_max)} ℃`,
+			min: `${kelvinToCelsius(main.temp_min)} ℃`,
 		}));
 
 		setForecastLondonWeather(arrPayloads);
