@@ -13,8 +13,16 @@ const WeatherCard = ({data, loading}: IWeatherCardProps) => {
 		<WeatherCardContainer>
 			{data?.cityOf && (
 				<WeatherCardProp>
-					<Text variant={'xxLarge'} block>
+					<Text variant={'large'} block>
 						{`Today in ${data?.cityOf}`}
+					</Text>
+				</WeatherCardProp>
+			)}
+
+			{data?.dt && (
+				<WeatherCardProp>
+					<Text variant={'large'} block>
+						{`${data?.dt}`}
 					</Text>
 				</WeatherCardProp>
 			)}

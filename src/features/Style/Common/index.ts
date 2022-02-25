@@ -8,6 +8,21 @@ const StylePageContentContainer = styled(Stack)`
 	max-width: 800px;
 `;
 
+const ViewWrapper = styled.div`
+	height: 100%;
+	width: 100%;
+	max-width: 2000px;
+	margin: 0 auto;
+`;
+
+const ContentWrapper = styled.div`
+  height: 100%;
+  width: 100%;
+`;
+
 export {
 	StylePageContentContainer,
+	ViewWrapper,
+	ContentWrapper,
 };
+

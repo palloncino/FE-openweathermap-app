@@ -9,6 +9,8 @@ import reportWebVitals from './reportWebVitals';
 import {store} from './state';
 import {goldenTheme} from './theme';
 import './css/index.css';
+import {initializeIcons} from '@fluentui/react/lib/Icons';
+initializeIcons();
 
 ReactDOM.render(
 	<React.StrictMode>

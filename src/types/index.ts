@@ -15,11 +15,12 @@ type weatherQueryObjectType = {
 }
 
 type CityWeatherObjectType = {
+	dt?: number;
 	cityOf?: string;
-	summary: string;
-	temp: string;
-	humidity: string;
-	lastUpdate: string;
+	summary?: string;
+	temp?: string;
+	humidity?: string;
+	lastUpdate?: string;
 }
 
 interface IWeatherCardProps {
@@ -28,7 +29,7 @@ interface IWeatherCardProps {
 }
 
 interface IWeatherForecastCardsProps {
-	data: CityWeatherObjectType | undefined;
+	data: CityWeatherObjectType[] | undefined;
 	loading: boolean;
 }
 

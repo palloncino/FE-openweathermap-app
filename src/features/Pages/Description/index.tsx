@@ -11,8 +11,48 @@ const Description = ({theme}: IApplicationProps) => (
 				<HeroHeader
 					color={theme?.palette?.white}
 					bgColor={`linear-gradient(113.96deg, ${theme?.palette?.themeDarker} 0%, ${theme?.palette?.themePrimary} 48.44%, ${theme?.palette?.themeDarker} 100%)`}
-					headline={'Application Requirements'} />
+					headline={'Application Description'} />
 			</SectionMarginBottom>
+
+			<SectionMarginBottom>
+				<Text variant={'xxLarge'} nowrap block>
+						To be improved
+				</Text>
+				<ul>
+					<li>
+							Date Format
+					</li>
+					<li>
+							UI/UX for Weather App
+					</li>
+				</ul>
+			</SectionMarginBottom>
+
+			<SectionMarginBottom>
+				<Text variant={'xxLarge'} nowrap block>
+						Observations
+				</Text>
+				<ul>
+					<li>
+							The API doesn&apos;t provide a convenient data model.
+					</li>
+				</ul>
+			</SectionMarginBottom>
+
+			<SectionMarginBottom>
+				<Text variant={'xxLarge'} nowrap block>
+						To do
+				</Text>
+				<ul>
+					<li>
+							UML Graph Route
+					</li>
+					<li>
+							Tests
+					</li>
+				</ul>
+			</SectionMarginBottom>
+
 			<StyledSectionWhite>
 				<StyledParagraph>
 					<Text variant={'large'} block>

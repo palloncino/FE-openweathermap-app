@@ -2,12 +2,12 @@
 import {useEffect, useState} from 'react';
 import ApiService from '../api/apiServices';
 import {CityWeatherObjectType} from '../types';
-import {kelvinToCelsius} from '../utils';
+import {kelvinToCelsius, translateUnixDate} from '../utils';
 
 export const useWeather = () => {
 	const [currentLondonWeather, setCurrentLondonWeather] = useState<CityWeatherObjectType | undefined>();
 	const [currentWeatherLoading, setCurrentWeatherLoading] = useState(false);
-	const [forecastLondonWeather, setForecastLondonWeather] = useState<Partial<CityWeatherObjectType[]> | undefined>();
+	const [forecastLondonWeather, setForecastLondonWeather] = useState<CityWeatherObjectType[]>();
 	const [forecastWeatherLoading, setForecastWeatherLoading] = useState(false);
 
 	const getLondonWeather = async () => {
@@ -32,7 +32,8 @@ export const useWeather = () => {
 		setForecastWeatherLoading(true);
 		const resForecast = await ApiService.weather.LondonForecast({lat, lon});
 
-		const arrPayloads: Partial<CityWeatherObjectType[]> = resForecast.data.list.map(({weather, main}: any) => ({
+		const arrPayloads: CityWeatherObjectType[] = resForecast.data.list.map(({weather, main, dt}: any) => ({
+			dt: translateUnixDate(dt),
 			summary: weather[0].description,
 			temp: `${kelvinToCelsius(main.temp)} ℃`,
 			humidity: `${main.humidity} %`,

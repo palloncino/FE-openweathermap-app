@@ -1,12 +1,10 @@
-import {useCallback, useEffect} from 'react';
+import {useCallback} from 'react';
 import {RouteObject, useRoutes} from 'react-router-dom';
 import {framedView} from '../features/Layout';
 import {IApplicationProps, ViewType} from '../types';
-import {initializeIcons} from '@fluentui/font-icons-mdl2';
 
 const Application = (props: IApplicationProps) => {
 	const {appConfig} = props;
-	useEffect(() => initializeIcons(), []);
 	const viewObjectBuilder = useCallback((views: ViewType[]) => {
 		const routesBuffer: RouteObject[] = [];
 
