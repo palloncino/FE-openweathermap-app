@@ -13,7 +13,7 @@ export const useWeather = () => {
 	const getLondonWeather = async () => {
 		// Fetching London Current Weather
 		setCurrentWeatherLoading(true);
-		const resGeo = await ApiService.coordinates.London({limit: 1}); // Limit 2 would result in 2 London (GB, CA) which is useless for us
+		const resGeo = await ApiService.coordinates.London({limit: 1});
 		const {lat, lon} = resGeo.data[0];
 		const resLon = await ApiService.weather.London({lat, lon});
 
