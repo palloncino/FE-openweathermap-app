@@ -57,3 +57,9 @@ you to implement features that you think are important for the final user for be
 <br /><br />
 
 `Palloncino (Antonio Guiotto) Feb 2022`
+
+## 🛠 Todos
+
+- tests
+- mock with mws due to exceeded amount of requests I cannot longer use the API (429)
+- set variable to body background of index.html

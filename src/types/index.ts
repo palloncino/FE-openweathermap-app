@@ -156,6 +156,10 @@ type IArticleMetadataModuleImport = {
 	[key: string]: IArticleMetadata;
 };
 
+interface IErrorViewProps {
+	message: string;
+}
+
 export type {
 	FolderNameType,
 	ViewType,
@@ -174,5 +178,6 @@ export type {
 	IWeatherCardProps,
 	ICityForecastResponse,
 	IWeatherForecastCardsProps,
+	IErrorViewProps,
 };
 

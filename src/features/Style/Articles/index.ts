@@ -64,9 +64,17 @@ const StyledArticleCardContainer = styled.div<{key?: string, color?: string, bgC
 	border-radius: .2rem;
 `;
 
-const StyledArticleCardTitle = styled.div<{}>``;
-
-const StyledArticleCardSummary = styled.div<{}>``;
+const StyledErrorViewContainer = styled.div`
+	background: #fff;
+	padding: 1.2rem;
+	margin-bottom: 2rem;
+	border-radius: .2rem;
+	box-shadow: 0px 0.6px 1.8px rgba(0, 0, 0, 0.1), 0px 3.2px 7.2px rgba(0, 0, 0, 0.13);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+`;
 
 export {
 	StyledArticlesStack,
@@ -75,10 +83,9 @@ export {
 	SpecialWordStyle,
 	StyledArticlesGrid,
 	StyledArticleCardContainer,
-	StyledArticleCardTitle,
-	StyledArticleCardSummary,
 	WeatherCardContainer,
 	WeatherCardProp,
 	StyledSectionWhite,
 	SectionMarginBottom,
+	StyledErrorViewContainer,
 };

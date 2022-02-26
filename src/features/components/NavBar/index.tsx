@@ -1,12 +1,12 @@
 import {Dropdown, IDropdownOption, Stack} from '@fluentui/react';
 import {FormEvent, useState} from 'react';
-import {useNavigation} from '../../hooks';
-import {IFramedChildComponentProps} from '../../types';
-import {viewsToDropdownOptions} from '../../utils';
-import {extractModuleFromUrl} from '../../utils/URL';
+import {useNavigation} from '../../../hooks';
+import {IFramedChildComponentProps} from '../../../types';
+import {viewsToDropdownOptions} from '../../../utils';
+import {extractModuleFromUrl} from '../../../utils/URL';
 import {Image} from '../Image';
-import logo from '../../media/svgs/logo.svg';
-import {dropdownStyles, horizontalGapStackTokens, logoStyle, NavBarContentContainer, NavBarWrapper, StyledNavBarBox} from '../Style/NavBar';
+import logo from '../../../media/svgs/logo.svg';
+import {dropdownStyles, horizontalGapStackTokens, logoStyle, NavBarContentContainer, NavBarWrapper, StyledNavBarBox} from '../../Style/NavBar';
 
 export const NavBar = ({appConfig}: IFramedChildComponentProps) => {
 	const {pathname, navigate} = useNavigation();
