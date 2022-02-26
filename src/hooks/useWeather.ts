@@ -12,9 +12,9 @@ export const useWeather = () => {
 	const [errorMessage, setErrorMessage] = useState('');
 
 	const getLondonWeather = async () => {
-		// Fetching London Current Weather
-		setCurrentWeatherLoading(true);
 		try {
+			// Fetching London Current Weather
+			setCurrentWeatherLoading(true);
 			const resGeo: any = await ApiService.coordinates.London({limit: 1});
 			const {lat, lon} = resGeo.data[0];
 			const resLon = await ApiService.weather.London({lat, lon});
@@ -57,5 +57,11 @@ export const useWeather = () => {
 		getLondonWeather();
 	}, []);
 
-	return {errorMessage, currentLondonWeather, currentWeatherLoading, forecastLondonWeather, forecastWeatherLoading};
+	return {
+		errorMessage,
+		currentLondonWeather,
+		currentWeatherLoading,
+		forecastLondonWeather,
+		forecastWeatherLoading
+	};
 };
