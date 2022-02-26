@@ -10,8 +10,45 @@ type weatherQueryObjectType = {
 	lon: number;
 }
 
+type GeoObjectType = {
+	name: string;
+	lat: number;
+	lon: number;
+}
+
+type geoResponseType = {
+	data: GeoObjectType[];
+}
+
+type weatherObjectType = {
+	description: string;
+}
+
+type weatherDataPayloadType = {
+	weather: weatherObjectType[],
+	main: CityWeatherObjectType,
+	dt: number,
+}
+
+type currentWeatherResponseObjectType = {
+	data: weatherDataPayloadType;
+}
+
+type forecastWeatherResponseObjectType = {
+	data: {
+		list: weatherObjectType[],
+	},
+}
+
 type CityWeatherObjectType = {
-	dt?: number;
+	temp: number;
+	humidity: number;
+	temp_max: number;
+	temp_min: number;
+}
+
+type IbridCityWeatherObjectType = {
+	dt?: string;
 	cityOf?: string;
 	summary?: string;
 	temp?: string;
@@ -22,12 +59,12 @@ type CityWeatherObjectType = {
 }
 
 interface IWeatherCardProps {
-	data: CityWeatherObjectType | undefined;
+	data: IbridCityWeatherObjectType | undefined;
 	loading: boolean;
 }
 
 interface IWeatherForecastCardsProps {
-	data: CityWeatherObjectType[] | undefined;
+	data: IbridCityWeatherObjectType[] | undefined;
 	loading: boolean;
 }
 
@@ -179,5 +216,9 @@ export type {
 	ICityForecastResponse,
 	IWeatherForecastCardsProps,
 	IErrorViewProps,
+	IbridCityWeatherObjectType,
+	geoResponseType,
+	currentWeatherResponseObjectType,
+	forecastWeatherResponseObjectType,
 };
 
