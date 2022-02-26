@@ -1,11 +1,10 @@
-import {useCallback} from 'react';
 import {RouteObject, useRoutes} from 'react-router-dom';
 import {framedView} from '../features/Layout';
 import {IApplicationProps, ViewType} from '../types';
 
 const Application = (props: IApplicationProps) => {
 	const {appConfig} = props;
-	const viewObjectBuilder = useCallback((views: ViewType[]) => {
+	const viewObjectBuilder = (views: ViewType[]) => {
 		const routesBuffer: RouteObject[] = [];
 
 		views.forEach(({url, folderName}) => {
@@ -17,7 +16,7 @@ const Application = (props: IApplicationProps) => {
 		});
 
 		return routesBuffer;
-	}, [props!.appConfig!.views]);
+	};
 
 	const View = useRoutes(viewObjectBuilder(appConfig!.views));
 
