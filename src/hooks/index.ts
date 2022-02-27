@@ -1,2 +1,3 @@
-export * from './useTest';
 export * from './useNavigation';
+export * from './useWeather';
+

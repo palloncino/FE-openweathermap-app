@@ -30,6 +30,10 @@ const SectionMarginBottom = styled.div`
 	margin-bottom: 2rem;
 `;
 
+const StyledCardsHead = styled.div`
+	margin-bottom: 2rem;
+`;
+
 const WeatherCardContainer = styled.div`
 	background: #fff;
 	border-radius: .2rem;
@@ -88,4 +92,5 @@ export {
 	StyledSectionWhite,
 	SectionMarginBottom,
 	StyledErrorViewContainer,
+	StyledCardsHead,
 };

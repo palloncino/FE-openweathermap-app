@@ -10,6 +10,14 @@ export const translateUnixDate = (unix: number | undefined) => {
 	return moment.unix(unix).format('LLL');
 };
 
+export const translateUnixDateToHours = (unix: number | undefined) => {
+	if (!unix) {
+		return;
+	}
+
+	return moment.unix(unix).format('LT');
+};
+
 export const formatGetTime = (time: number | undefined) => {
 	if (!time) {
 		return;

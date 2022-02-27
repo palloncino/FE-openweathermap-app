@@ -19,10 +19,10 @@ const WeatherCard = ({data, loading}: IWeatherCardProps) => {
 				</WeatherCardProp>
 			)}
 
-			{data?.dt && (
+			{data?.hours && (
 				<WeatherCardProp>
 					<Text variant={'large'} block>
-						{`${data?.dt}`}
+						Time: {`${data?.hours}`}
 					</Text>
 				</WeatherCardProp>
 			)}

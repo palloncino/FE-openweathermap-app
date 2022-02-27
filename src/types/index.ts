@@ -48,14 +48,15 @@ type CityWeatherObjectType = {
 }
 
 type IbridCityWeatherObjectType = {
-	dt?: string;
+	summary: string;
+	temp: string;
+	humidity: string;
 	cityOf?: string;
-	summary?: string;
-	temp?: string;
-	humidity?: string;
 	lastUpdate?: string;
 	max?: string;
 	min?: string;
+	hours?: string
+	dt?: string;
 }
 
 interface IWeatherCardProps {

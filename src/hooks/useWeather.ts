@@ -2,7 +2,7 @@
 import {useEffect, useState} from 'react';
 import ApiService from '../api/apiServices';
 import {currentWeatherResponseObjectType, forecastWeatherResponseObjectType, geoResponseType, IbridCityWeatherObjectType} from '../types';
-import {formatGetTime, kelvinToCelsius, translateUnixDate} from '../utils';
+import {formatGetTime, kelvinToCelsius, translateUnixDate, translateUnixDateToHours} from '../utils';
 
 export const useWeather = () => {
 	const [currentLondonWeather, setCurrentLondonWeather] = useState<IbridCityWeatherObjectType | undefined>();
@@ -44,6 +44,7 @@ export const useWeather = () => {
 				max: `${kelvinToCelsius(main.temp_max)} ℃`,
 				min: `${kelvinToCelsius(main.temp_min)} ℃`,
 				dt: translateUnixDate(dt),
+				hours: translateUnixDateToHours(dt)
 			}));
 
 			setForecastLondonWeather(arrPayloads);

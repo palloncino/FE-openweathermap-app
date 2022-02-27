@@ -1,7 +1,7 @@
 import {IApplicationProps} from '../../../types';
 import HeroHeader from '../../components/HeroHeader';
 import {SectionMarginBottom, StyledArticlesGrid, StylePageContentContainer} from '../../Style';
-import {useWeather} from '../../../hooks/useWeather';
+import {useWeather} from '../../../hooks';
 import WeatherCard from '../../components/WeatherCard';
 import WeatherForecastCards from '../../components/WeatherForecastCards';
 import {Text} from '@fluentui/react';
@@ -21,8 +21,8 @@ const Home = ({theme}: IApplicationProps) => {
 	const contentView = () => (
 		<>
 			<SectionMarginBottom>
-				<Text variant={'xLarge'} nowrap block>
-						Current Weather
+				<Text variant={'xxLarge'} nowrap block>
+						Right now in London
 				</Text>
 			</SectionMarginBottom>
 
@@ -33,7 +33,7 @@ const Home = ({theme}: IApplicationProps) => {
 			</SectionMarginBottom>
 
 			<SectionMarginBottom>
-				<Text variant={'xLarge'} nowrap block>
+				<Text variant={'xxLarge'} nowrap block>
 						Weather forecast for the next 5 days
 				</Text>
 			</SectionMarginBottom>
