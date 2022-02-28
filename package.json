@@ -1,6 +1,6 @@
 {
-  "name": "example--react-latest-features",
-  "version": "0.2.0",
+  "name": "test--weather-app",
+  "version": "1.0",
   "private": true,
   "dependencies": {
     "@fluentui/react": "^8.55.3",
