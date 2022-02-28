@@ -61,6 +61,4 @@ you to implement features that you think are important for the final user for be
 ## 🛠 Todos
 
 - tests
-- mock with mws due to exceeded amount of requests I cannot longer use the API (429)
-- set variable to body background of index.html
-- set API response type
+- if mock flag true return mocks
