@@ -1,5 +1,3 @@
-# Antonio Guiotto
-# Frontend Software Engineer Technical Test
 # ⚡️ Get Started
 
 1. Create an account with [openweathermap.org](https://openweathermap.org/)
